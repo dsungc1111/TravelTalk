@@ -22,7 +22,7 @@ class GruopTalkTableViewCell: UITableViewCell {
         // Initialization code
         configureLayout()
     }
-
+//ㄹㅇㄹ
     
     func configureLayout() {
         groupNameLabel.font = .boldSystemFont(ofSize: 13)
