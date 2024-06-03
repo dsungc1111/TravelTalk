@@ -11,7 +11,7 @@ enum User: String, CaseIterable {
     case jack = "Jack"
     case bran = "Bran"
     case den = "Den"
-    case user //본인
+    case user = "대성"
     case other_friend = "내옆자리의앞자리에개발잘하는친구"
     case simsim = "심심이"
     
@@ -20,6 +20,7 @@ enum User: String, CaseIterable {
         default: return rawValue
         }
     }
+   
 }
 
 //트래블톡 화면에서 사용할 데이터 구조체
@@ -89,13 +90,13 @@ let mockChatList: [ChatRoom] = [
                      message: "제.. 제가 푸쉬를 안했군요... 얼른 푸쉬하도록 하겠습니다..."),
                 Chat(user: .jack,
                      date: "2024-06-11 13:29",
-                     message: "00님~ 아직도 푸쉬가 안되어있네요 ^_^ 수업 끝나고 면담 진행하도록 할게요~~ 끝나고 남아주세요~"),
+                     message: "\(User.user.rawValue)님~ 아직도 푸쉬가 안되어있네요 ^_^ 수업 끝나고 면담 진행하도록 할게요~~ 끝나고 남아주세요~"),
                 Chat(user: .user,
                      date: "2024-06-11 13:31",
                      message: "넵.."),
                 Chat(user: .jack,
                      date: "2024-06-11 14:42",
-                     message: "면담 때 매일 10시까지 남아있겠다는 말 잘 지키시는지 확인할게요~~/n아 매일은 오늘도 포함인거 아시죠?!"),
+                     message: "면담 때 매일 10시까지 남아있겠다는 말 잘 지키시는지 확인할게요~~\n아 매일은 오늘도 포함인거 아시죠?!"),
                 Chat(user: .user,
                      date: "2024-06-11 14:50",
                      message: "네...."),

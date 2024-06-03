@@ -20,6 +20,11 @@
 		8B3E9BCC2C0C68AF000D9D22 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8B3E9BCB2C0C68AF000D9D22 /* Kingfisher */; };
 		8B3E9BCF2C0CB23C000D9D22 /* GruopTalkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B3E9BCE2C0CB23C000D9D22 /* GruopTalkTableViewCell.xib */; };
 		8B3E9BD02C0CB23C000D9D22 /* GruopTalkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E9BCD2C0CB23C000D9D22 /* GruopTalkTableViewCell.swift */; };
+		8B3E9C002C0D92B7000D9D22 /* ChattingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E9BFF2C0D92B7000D9D22 /* ChattingRoomViewController.swift */; };
+		8B3E9C0C2C0DA4A8000D9D22 /* TheOhterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E9C0A2C0DA4A8000D9D22 /* TheOhterTableViewCell.swift */; };
+		8B3E9C0D2C0DA4A8000D9D22 /* TheOhterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B3E9C0B2C0DA4A8000D9D22 /* TheOhterTableViewCell.xib */; };
+		8B3E9C102C0DA4B4000D9D22 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E9C0E2C0DA4B4000D9D22 /* MyTableViewCell.swift */; };
+		8B3E9C112C0DA4B4000D9D22 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B3E9C0F2C0DA4B4000D9D22 /* MyTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,11 @@
 		8B3E9BC72C0C61CA000D9D22 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		8B3E9BCD2C0CB23C000D9D22 /* GruopTalkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GruopTalkTableViewCell.swift; sourceTree = "<group>"; };
 		8B3E9BCE2C0CB23C000D9D22 /* GruopTalkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GruopTalkTableViewCell.xib; sourceTree = "<group>"; };
+		8B3E9BFF2C0D92B7000D9D22 /* ChattingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRoomViewController.swift; sourceTree = "<group>"; };
+		8B3E9C0A2C0DA4A8000D9D22 /* TheOhterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheOhterTableViewCell.swift; sourceTree = "<group>"; };
+		8B3E9C0B2C0DA4A8000D9D22 /* TheOhterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TheOhterTableViewCell.xib; sourceTree = "<group>"; };
+		8B3E9C0E2C0DA4B4000D9D22 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		8B3E9C0F2C0DA4B4000D9D22 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,13 +80,13 @@
 		8B3E9BAC2C0C3B45000D9D22 /* TravelTalk */ = {
 			isa = PBXGroup;
 			children = (
+				8B3E9C012C0D9441000D9D22 /* ViewController */,
 				8B3E9BD22C0CB276000D9D22 /* TableViewCell */,
 				8B3E9BD12C0CB247000D9D22 /* TableViewCellXib */,
 				8B3E9BC92C0C61CF000D9D22 /* Protocol */,
 				8B3E9BC12C0C3CC5000D9D22 /* ChattingData.swift */,
 				8B3E9BAD2C0C3B45000D9D22 /* AppDelegate.swift */,
 				8B3E9BAF2C0C3B45000D9D22 /* SceneDelegate.swift */,
-				8B3E9BB12C0C3B45000D9D22 /* TravelTalkViewController.swift */,
 				8B3E9BB32C0C3B45000D9D22 /* Main.storyboard */,
 				8B3E9BB62C0C3B47000D9D22 /* Assets.xcassets */,
 				8B3E9BB82C0C3B47000D9D22 /* LaunchScreen.storyboard */,
@@ -96,6 +106,8 @@
 		8B3E9BD12C0CB247000D9D22 /* TableViewCellXib */ = {
 			isa = PBXGroup;
 			children = (
+				8B3E9C0F2C0DA4B4000D9D22 /* MyTableViewCell.xib */,
+				8B3E9C0B2C0DA4A8000D9D22 /* TheOhterTableViewCell.xib */,
 				8B3E9BC42C0C5AB3000D9D22 /* TravelTalkTableViewCell.xib */,
 				8B3E9BCE2C0CB23C000D9D22 /* GruopTalkTableViewCell.xib */,
 			);
@@ -105,10 +117,21 @@
 		8B3E9BD22C0CB276000D9D22 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				8B3E9C0E2C0DA4B4000D9D22 /* MyTableViewCell.swift */,
+				8B3E9C0A2C0DA4A8000D9D22 /* TheOhterTableViewCell.swift */,
 				8B3E9BC32C0C5AB3000D9D22 /* TravelTalkTableViewCell.swift */,
 				8B3E9BCD2C0CB23C000D9D22 /* GruopTalkTableViewCell.swift */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		8B3E9C012C0D9441000D9D22 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8B3E9BB12C0C3B45000D9D22 /* TravelTalkViewController.swift */,
+				8B3E9BFF2C0D92B7000D9D22 /* ChattingRoomViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +202,8 @@
 				8B3E9BC52C0C5AB3000D9D22 /* TravelTalkTableViewCell.xib in Resources */,
 				8B3E9BBA2C0C3B47000D9D22 /* Base in Resources */,
 				8B3E9BB52C0C3B45000D9D22 /* Base in Resources */,
+				8B3E9C0D2C0DA4A8000D9D22 /* TheOhterTableViewCell.xib in Resources */,
+				8B3E9C112C0DA4B4000D9D22 /* MyTableViewCell.xib in Resources */,
 				8B3E9BCF2C0CB23C000D9D22 /* GruopTalkTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,11 +217,14 @@
 			files = (
 				8B3E9BD02C0CB23C000D9D22 /* GruopTalkTableViewCell.swift in Sources */,
 				8B3E9BB22C0C3B45000D9D22 /* TravelTalkViewController.swift in Sources */,
+				8B3E9C002C0D92B7000D9D22 /* ChattingRoomViewController.swift in Sources */,
+				8B3E9C102C0DA4B4000D9D22 /* MyTableViewCell.swift in Sources */,
 				8B3E9BC22C0C3CC5000D9D22 /* ChattingData.swift in Sources */,
 				8B3E9BAE2C0C3B45000D9D22 /* AppDelegate.swift in Sources */,
 				8B3E9BB02C0C3B45000D9D22 /* SceneDelegate.swift in Sources */,
 				8B3E9BC62C0C5AB3000D9D22 /* TravelTalkTableViewCell.swift in Sources */,
 				8B3E9BC82C0C61CA000D9D22 /* Protocol.swift in Sources */,
+				8B3E9C0C2C0DA4A8000D9D22 /* TheOhterTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

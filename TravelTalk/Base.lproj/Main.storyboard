@@ -30,6 +30,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="c4v-vk-8rQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0cD-NR-e14"/>
                             <constraint firstItem="c4v-vk-8rQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="A0T-Wh-zKf"/>
@@ -49,6 +50,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="802.29007633587787" y="-28.169014084507044"/>
+        </scene>
+        <!--Chatting Room View Controller-->
+        <scene sceneID="1Se-m5-OhD">
+            <objects>
+                <viewController storyboardIdentifier="ChattingRoomViewController" id="mxM-ug-nc5" customClass="ChattingRoomViewController" customModule="TravelTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lgi-J5-wUr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bEJ-zw-p4k">
+                                <rect key="frame" x="0.0" y="59" width="393" height="709"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="X7a-3t-ztM">
+                                <rect key="frame" x="20" y="768" width="353" height="54"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pMg-Ya-Vcc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="pMg-Ya-Vcc" firstAttribute="bottom" secondItem="bEJ-zw-p4k" secondAttribute="bottom" constant="50" id="JbH-ac-IYR"/>
+                            <constraint firstItem="pMg-Ya-Vcc" firstAttribute="trailing" secondItem="X7a-3t-ztM" secondAttribute="trailing" constant="20" id="LN1-WR-1BO"/>
+                            <constraint firstItem="bEJ-zw-p4k" firstAttribute="leading" secondItem="pMg-Ya-Vcc" secondAttribute="leading" id="VLQ-gf-K6i"/>
+                            <constraint firstItem="bEJ-zw-p4k" firstAttribute="top" secondItem="pMg-Ya-Vcc" secondAttribute="top" id="VTM-qA-bjT"/>
+                            <constraint firstItem="X7a-3t-ztM" firstAttribute="leading" secondItem="pMg-Ya-Vcc" secondAttribute="leading" constant="20" id="VyF-cj-Z7x"/>
+                            <constraint firstItem="X7a-3t-ztM" firstAttribute="top" secondItem="bEJ-zw-p4k" secondAttribute="bottom" id="YK4-2p-wDo"/>
+                            <constraint firstAttribute="bottom" secondItem="X7a-3t-ztM" secondAttribute="bottom" constant="30" id="dF5-NM-LFJ"/>
+                            <constraint firstItem="pMg-Ya-Vcc" firstAttribute="trailing" secondItem="bEJ-zw-p4k" secondAttribute="trailing" id="fbd-wf-kS8"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="yJa-Ta-TtW" appends="YES" id="NqP-V4-5nB"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="chattingRoomTableView" destination="bEJ-zw-p4k" id="W2Y-Kc-MVl"/>
+                        <outlet property="searchTextView" destination="X7a-3t-ztM" id="R5i-CW-lRN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DQ1-4v-E4t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yJa-Ta-TtW">
+                    <connections>
+                        <action selector="keboardDismiss:" destination="mxM-ug-nc5" id="Pg0-ht-TXc"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1602" y="-28"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N2R-0Z-Th4">
@@ -70,6 +122,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

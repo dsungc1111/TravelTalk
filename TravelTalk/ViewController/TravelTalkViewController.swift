@@ -33,7 +33,8 @@ class TravelTalkViewController: UIViewController {
         talkTableView.register(xib2, forCellReuseIdentifier: GruopTalkTableViewCell.identifier)
     }
 
-
+   
+    
 }
 
 extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
@@ -56,7 +57,7 @@ extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
             return cell1
         } else {
             guard let cell2 = talkTableView.dequeueReusableCell(withIdentifier: GruopTalkTableViewCell.identifier, for: indexPath) as? GruopTalkTableViewCell else { return GruopTalkTableViewCell() }
-            
+           
             cell2.configureCell(data: data)
             
             return cell2
@@ -66,17 +67,32 @@ extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(identifier: ChattingRoomViewController.identifier) as? ChattingRoomViewController else { return }
+       
+        
+        vc.navigationItem.title = vc.list[indexPath.row].chatroomName
+        
+        vc.basket = vc.list[indexPath.row].chatList
+        navigationController?.pushViewController(vc, animated: true)
+        
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     
     
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+  
+    
+   
     
     
 }
-//2024-06-12 23:42
 
 extension String {
   // MARK: - String -> Date
@@ -93,23 +109,6 @@ extension String {
     }
     return nil
   }
-    
-//    var convertStrDate: String? {
-//        
-//        
-//        
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-//        guard let date = dateFormatter.date(from: self) else {
-//            return nil
-//        }
-//        
-//        let newaDateFormatter = DateFormatter()
-//        newaDateFormatter.dateFormat = "yy-MM-dd"
-//        newaDateFormatter.locale = Locale(identifier: "ko_KR")
-//        let convetStrDate = newaDateFormatter.string(from: date)
-//        return convetStrDate
-//    }
 }
 
 extension Date {
@@ -136,7 +135,7 @@ extension TravelTalkViewController: UISearchBarDelegate {
           // 취소 버튼을 누를 때 검색어를 초기화하고 테이블 뷰를 갱신합니다.
         searchBar.text = nil
         searchBar.resignFirstResponder() // 키보드 내림
-        
+        friend = mockChatList
         talkTableView.reloadData()
       }
       
@@ -154,15 +153,14 @@ extension TravelTalkViewController: UISearchBarDelegate {
         }
         if count == 0 {basketLsit = mockChatList}
         friend = basketLsit
-        print(friend)
         talkTableView.reloadData()
         
     }
     
     
+   
     
-    
-    func dismissKeyboard() {
-        roomSearchBar.resignFirstResponder()
-    }
+//    func dismissKeyboard() {
+//        roomSearchBar.resignFirstResponder()
+//    }
 }

@@ -17,3 +17,9 @@ extension UITableViewCell: UseIdentifier {
         return String(describing: self)
     }
 }
+
+extension UIViewController: UseIdentifier {
+    static var identifier: String {
+        return String(describing: self)
+    }
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="105" id="KGk-i7-Jjw" customClass="MyTableViewCell" customModule="TravelTalk" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="387" height="105"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="387" height="105"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tna-fI-tv8">
+                        <rect key="frame" x="317" y="34" width="58" height="37"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzX-vu-LOr">
+                        <rect key="frame" x="325" y="42" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5T4-6e-QU9">
+                        <rect key="frame" x="271" y="50.666666666666664" width="42" height="20.333333333333336"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qzX-vu-LOr" firstAttribute="bottom" secondItem="tna-fI-tv8" secondAttribute="bottom" constant="-8" id="Bj2-Pq-dkl"/>
+                    <constraint firstItem="qzX-vu-LOr" firstAttribute="trailing" secondItem="tna-fI-tv8" secondAttribute="trailing" constant="-8" id="GhX-wQ-GyW"/>
+                    <constraint firstItem="5T4-6e-QU9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="LB4-Lf-ngK"/>
+                    <constraint firstItem="tna-fI-tv8" firstAttribute="leading" secondItem="qzX-vu-LOr" secondAttribute="leading" constant="-8" id="M8c-1Q-AhZ"/>
+                    <constraint firstItem="tna-fI-tv8" firstAttribute="top" secondItem="qzX-vu-LOr" secondAttribute="top" constant="-8" id="QUB-jk-Gl0"/>
+                    <constraint firstItem="qzX-vu-LOr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="SGX-Nh-RrQ"/>
+                    <constraint firstItem="tna-fI-tv8" firstAttribute="leading" secondItem="5T4-6e-QU9" secondAttribute="trailing" constant="4" id="jhd-tO-Gd2"/>
+                    <constraint firstItem="tna-fI-tv8" firstAttribute="bottom" secondItem="5T4-6e-QU9" secondAttribute="bottom" id="w6a-u9-U3n"/>
+                    <constraint firstAttribute="trailing" secondItem="tna-fI-tv8" secondAttribute="trailing" constant="12" id="zT9-cO-RTm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="backView" destination="tna-fI-tv8" id="w17-cw-idV"/>
+                <outlet property="myTimeLabel" destination="5T4-6e-QU9" id="J43-oE-f2D"/>
+                <outlet property="myTurnLable" destination="qzX-vu-LOr" id="00F-fd-op0"/>
+            </connections>
+            <point key="canvasLocation" x="87.786259541984734" y="41.197183098591552"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
