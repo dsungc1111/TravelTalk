@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import SnapKit
 import Kingfisher
 
 
 class TravelTalkViewController: UIViewController {
 
+    enum Section: CaseIterable {
+        case main
+    }
+    
+    
     var friend = mockChatList
     var basketLsit = mockChatList
     
@@ -18,81 +24,82 @@ class TravelTalkViewController: UIViewController {
     
     @IBOutlet var talkTableView: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       
-        
-        talkTableView.delegate = self
-        talkTableView.dataSource = self
-        roomSearchBar.delegate = self
-        
-        let xib = UINib(nibName: TravelTalkTableViewCell.identifier, bundle: nil)
-        talkTableView.register(xib, forCellReuseIdentifier: TravelTalkTableViewCell.identifier)
-        
-        let xib2 = UINib(nibName: GruopTalkTableViewCell.identifier, bundle: nil)
-        talkTableView.register(xib2, forCellReuseIdentifier: GruopTalkTableViewCell.identifier)
-    }
-
+    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
    
+    var dataSource: UICollectionViewDiffableDataSource<Section, ChatRoom>!
     
-}
-
-extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friend.count
+    private func createLayout() -> UICollectionViewLayout {
+        var configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        configuration.showsSeparators = true
+        let layout = UICollectionViewCompositionalLayout.list(using: configuration)
+        
+        return layout
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    private func configureDataSource() {
+        var registration: UICollectionView.CellRegistration<UICollectionViewListCell, ChatRoom>!
         
-        
-        let data = friend[indexPath.row]
-        
-        if data.chatroomImage.count == 1 {
-            guard let cell1 = talkTableView.dequeueReusableCell(withIdentifier: TravelTalkTableViewCell.identifier, for: indexPath) as? TravelTalkTableViewCell else { return TravelTalkTableViewCell() }
+        registration = UICollectionView.CellRegistration { cell, indexPath, itemIdentifier in
+            // collectionviewCell's system cell
+            var content = UIListContentConfiguration.valueCell()
+            content.text = itemIdentifier.chatroomName
+            //            content.textProperties.font = .boldSystemFont(ofSize: 20)
+            content.secondaryText = itemIdentifier.chatList.first?.date
+            if indexPath.row != 0 {
+                let imageView = UIImageView(image: UIImage(named: itemIdentifier.chatroomImage.first ?? "star"))
+                imageView.contentMode = .scaleAspectFill
+                content.image = imageView.image
+            }
+            content.imageProperties.reservedLayoutSize = CGSize(width: 30, height: 30)
+            content.imageProperties.cornerRadius = 10
             
-            cell1.configureCell(data: data)
+            content.secondaryTextProperties.font = .systemFont(ofSize: 12)
             
-            return cell1
-        } else {
-            guard let cell2 = talkTableView.dequeueReusableCell(withIdentifier: GruopTalkTableViewCell.identifier, for: indexPath) as? GruopTalkTableViewCell else { return GruopTalkTableViewCell() }
-           
-            cell2.configureCell(data: data)
+            cell.contentConfiguration = content
             
-            return cell2
+            var backgroundConfig = UIBackgroundConfiguration.listGroupedCell()
+            backgroundConfig.cornerRadius = 10
+            backgroundConfig.strokeWidth = 4
+            
+            cell.backgroundConfiguration = backgroundConfig
         }
         
-        
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            let cell = collectionView.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: itemIdentifier )
+            
+            return cell
+        })
     }
-    
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vc = storyboard?.instantiateViewController(identifier: ChattingRoomViewController.identifier) as? ChattingRoomViewController else { return }
-       
-        
-        vc.navigationItem.title = vc.list[indexPath.row].chatroomName
-        
-        vc.basket = vc.list[indexPath.row].chatList
-        navigationController?.pushViewController(vc, animated: true)
-        
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        roomSearchBar.delegate = self
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        configureDataSource()
+        updateSnapShot()
     }
-    
-    
-    
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+    func updateSnapShot() {
+        var snapShot = NSDiffableDataSourceSnapshot<Section, ChatRoom>()
+        // section identifier has to be unique
+        snapShot.appendSections(Section.allCases)
+        snapShot.appendItems(friend, toSection: .main)
+//        snapShot.appendItems([Fruit(name: "테스트", count: 5, price: 5)], toSection: .sub)
+        dataSource.apply(snapShot) // reloadData
     }
-    
-  
-    
+
    
-    
-    
 }
+
+extension TravelTalkViewController:  UICollectionViewDelegateFlowLayout {
+   
+   
+}
+
+
+
+
+
 
 extension String {
   // MARK: - String -> Date
@@ -128,9 +135,6 @@ extension Date {
 extension TravelTalkViewController: UISearchBarDelegate {
    
     
-    
-
-      
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
           // 취소 버튼을 누를 때 검색어를 초기화하고 테이블 뷰를 갱신합니다.
         searchBar.text = nil

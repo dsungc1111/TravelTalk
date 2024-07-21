@@ -7,6 +7,7 @@
 import Foundation
 
 enum User: String, CaseIterable {
+    
     case hue = "Hue"
     case jack = "Jack"
     case bran = "Bran"
@@ -24,18 +25,38 @@ enum User: String, CaseIterable {
 }
 
 //트래블톡 화면에서 사용할 데이터 구조체
-struct ChatRoom {
+struct ChatRoom: Hashable, Identifiable {
+   
+    let id = UUID()
     let chatroomId: Int //채팅방 고유 ID
     let chatroomImage: [String] //채팅방에 속한 유저 이미지
     let chatroomName: String //채팅방 이름
     var chatList: [Chat] = [] //채팅 화면에서 사용할 데이터
 }
 
+/*
+ let dateFormatter = DateFormatter()
+ dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+ guard let date = dateFormatter.date(from: data.date) else { return }
+
+ let newaDateFormatter = DateFormatter()
+ newaDateFormatter.dateFormat = "dd일 HH:mm"
+ newaDateFormatter.locale = Locale(identifier: "ko_KR")
+ let convetStrDate = newaDateFormatter.string(from: date)
+ 
+ */
+
 //채팅 화면에서 사용할 데이터 구조체
-struct Chat {
+struct Chat: Hashable {
     let user: User
     let date: String
     let message: String
+    
+//    var myDate: String {
+//        
+//    }
+    
+    
 }
 
 
